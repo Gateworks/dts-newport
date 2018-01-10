@@ -131,7 +131,7 @@
 		compatible = "mmc-slot";
 		reg = <0>;
 		vmmc-supply = <&mmc_supply_3v3>;
-		max-frequency = <26000000>;
+		max-frequency = <35000000>;
 		/* 1.8v is not supported */
 		no-1-8-v;
 		/* No write-protect switch is present */
@@ -147,7 +147,7 @@
 		compatible = "mmc-slot";
 		reg = <1>;
 		vmmc-supply = <&mmc_supply_3v3>;
-		max-frequency = <26000000>;
+		max-frequency = <35000000>;
 		/* 1.8v is not supported */
 		no-1-8-v;
 		/* No write-protect switch is present */
