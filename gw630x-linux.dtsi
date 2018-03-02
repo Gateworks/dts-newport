@@ -61,6 +61,18 @@
 		};
 	};
 
+	gpio_keys {
+		compatible = "gpio-keys";
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		user_pb {
+			label = "user_pb";
+			gpios = <&gsc_gpio 0 1>;
+			linux,code = <256>; /* BTN_0 */
+		};
+	};
+
 	leds {
 		compatible = "gpio-leds";
 
@@ -166,6 +178,135 @@
 
 /* TWSI0 */
 &i2c_9_0 {
+	gsc: gsc@20 {
+		compatible = "gw,gsc_v2";
+		reg = <0x20>;
+		interrupt-parent = <&gpio_6_0>;
+		interrupts = <4 1>;
+		interrupt-controller;
+		#interrupt-cells = <1>;
+
+		gsc_hwmon {
+			compatible = "gw,gsc-hwmon";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			hwmon@0 {
+				type = <0>;
+				reg = <0x00>;
+				label = "temp";
+			};
+
+			hwmon@1 {
+				type = <1>;
+				reg = <0x02>;
+				label = "Vin";
+			};
+
+			hwmon@2 {
+				type = <1>;
+				reg = <0x0b>;
+				label = "VDD_5P0";
+			};
+
+			hwmon@3 {
+				type = <1>;
+				reg = <0x05>;
+				label = "VDD_3P3";
+			};
+
+			hwmon@4 {
+				type = <1>;
+				reg = <0x1d>;
+				label = "VDD_2P5";
+			};
+
+			hwmon@6 {
+				type = <1>;
+				reg = <0x0e>;
+				label = "VDD_CORE";
+			};
+
+			hwmon@7 {
+				type = <1>;
+				reg = <0x11>;
+				label = "VDD_0P9";
+			};
+
+			hwmon@8 {
+				type = <1>;
+				reg = <0x20>;
+				label = "VDD_1P0";
+			};
+
+			hwmon@9 {
+				type = <1>;
+				reg = <0x17>;
+				label = "VDD_1P2";
+			};
+
+			hwmon@12 {
+				type = <1>;
+				reg = <0x23>;
+				label = "VDD_1P5";
+			};
+
+			hwmon@13 {
+				type = <1>;
+				reg = <0x26>;
+				label = "VDD_1P8";
+			};
+
+			hwmon@14 {
+				type = <1>;
+				reg = <0x29>;
+				label = "VDD_ANL1";
+			};
+
+			hwmon@15 {
+				type = <1>;
+				reg = <0x08>;
+				label = "VDD_ANL2";
+			};
+
+			hwmon@16 { /* fan0 */
+				type = <2>;
+				reg = <0x2c>;
+				label = "fan_50p";
+			};
+
+			hwmon@17 { /* fan1 */
+				type = <2>;
+				reg = <0x2e>;
+				label = "fan_60p";
+			};
+
+			hwmon@18 { /* fan2 */
+				type = <2>;
+				reg = <0x30>;
+				label = "fan_70p";
+			};
+
+			hwmon@19 { /* fan3 */
+				type = <2>;
+				reg = <0x32>;
+				label = "fan_80p";
+			};
+
+			hwmon@20 { /* fan4 */
+				type = <2>;
+				reg = <0x34>;
+				label = "fan_90p";
+			};
+
+			hwmon@21 { /* fan5 */
+				type = <2>;
+				reg = <0x36>;
+				label = "fan_100p";
+			};
+		};
+	};
+
 	/* regulator */
 	regulator_core: max20730-i2c@56 {
 		compatible = "max,max20730";
@@ -196,16 +337,13 @@
 		pagesize = <16>;
 	};
 
-	gpio: pca9555@23 {
+	gsc_gpio: pca9555@23 {
 		compatible = "nxp,pca9555";
 		reg = <0x23>;
 		gpio-controller;
 		#gpio-cells = <2>;
-	};
-
-	gsc: gsc@29 {
-		compatible = "gsc";
-		reg = <0x29>;
+		interrupt-parent = <&gsc>;
+		interrupts = <4>;
 	};
 
 	rtc: ds1672@68 {
