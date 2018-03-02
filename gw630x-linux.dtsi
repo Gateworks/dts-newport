@@ -78,6 +78,11 @@
 			default-state = "off";
 		};
 	};
+
+	pps {
+		compatible = "pps-gpio";
+		gpios = <&gpio_6_0 30 0>;
+	};
 };
 
 &mrml_bridge {
