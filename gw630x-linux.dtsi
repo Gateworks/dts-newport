@@ -233,18 +233,24 @@
 				label = "temp";
 			};
 
+			hwmon@8 {
+				type = "gw,hwmon-voltage";
+				reg = <0x08>;
+				label = "vdd_bat";
+			};
+
+			hwmon@16 {
+				type = "gw,hwmon-voltage-raw";
+				reg = <0x16>;
+				label = "fan_tach";
+			};
+
 			hwmon@82 {
 				type = "gw,hwmon-voltage-raw";
 				reg = <0x82>;
 				label = "vdd_vin";
 				gw,voltage-divider = <22100 1000>;
 				gw,voltage-offset = <800>;
-			};
-
-			hwmon@8 {
-				type = "gw,hwmon-voltage";
-				reg = <0x08>;
-				label = "vdd_bat";
 			};
 
 			hwmon@84 {
