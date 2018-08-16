@@ -240,7 +240,7 @@
 			};
 
 			hwmon@16 {
-				type = "gw,hwmon-voltage-raw";
+				type = "gw,hwmon-voltage";
 				reg = <0x16>;
 				label = "fan_tach";
 			};
