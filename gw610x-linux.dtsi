@@ -305,19 +305,3 @@
 		reg = <0x68>;
 	};
 };
-
-&spi_7_0 {
-	flash: m25p128@0 {
-		compatible = "m25p128";
-		spi-max-frequency = <10000000>;
-		reg = <0>;
-		#device-width = <1>;
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		partition@0 {
-			label = "data";
-			reg = <0x0 0x2000000>;
-		};
-	};
-};
