@@ -48,6 +48,10 @@
 /include/ "cn81xx-linux.dtsi"
 
 / {
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
 	clocks {
 		compatible = "simple-bus";
 		#address-cells = <1>;
