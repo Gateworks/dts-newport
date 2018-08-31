@@ -342,19 +342,8 @@
 			hwmon@9a {
 				type = "gw,hwmon-voltage-raw";
 				reg = <0x9a>;
-				label = "vdd_1p8";
-			};
-
-			hwmon@9c {
-				type = "gw,hwmon-voltage-raw";
-				reg = <0x9c>;
 				label = "vdd_an1";
-			};
-
-			hwmon@9e {
-				type = "gw,hwmon-voltage-raw";
-				reg = <0x9e>;
-				label = "vdd_an2";
+				gw,voltage-divider = <10000 10000>;
 			};
 
 			hwmon@a2 {
