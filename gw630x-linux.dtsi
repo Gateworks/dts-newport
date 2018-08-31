@@ -363,6 +363,11 @@
 		interrupts = <4>;
 	};
 
+	max6642: max6642@4a {
+		compatible = "maxim,max6642";
+		reg = <0x4a>;
+	};
+
 	rtc: ds1672@68 {
 		compatible = "dallas,ds1672";
 		reg = <0x68>;

@@ -355,6 +355,11 @@
 		};
 	};
 
+	max6642: max6642@4a {
+		compatible = "maxim,max6642";
+		reg = <0x4a>;
+	};
+
 	/* regulator */
 	regulator_core: max20730-i2c@56 {
 		compatible = "max,max20730";
