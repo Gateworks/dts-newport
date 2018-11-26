@@ -52,6 +52,12 @@
 		stdout-path = "serial0:115200n8";
 	};
 
+	config {
+		u-boot,mmc-env-offset = <0xff0000>;
+		u-boot,mmc-env-offset-redundant = <0xff8000>;
+		u-boot,mmc-env-partition = <0>;
+	};
+
 	gpio_keys {
 		compatible = "gpio-keys";
 		#address-cells = <1>;
