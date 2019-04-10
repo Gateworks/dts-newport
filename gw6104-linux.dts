@@ -49,3 +49,7 @@
 
 /include/ "gw610x-linux.dtsi"
 
+/ {
+	model = "Gateworks Newport CN80XX GW6104";
+	compatible = "gw,gw610x", "gw,newport", "cavium,thunder-81xx";
+};
