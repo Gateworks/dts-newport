@@ -217,6 +217,15 @@
 
 /* TWSI0 */
 &i2c_9_0 {
+	lis2de12@19 {
+		compatible = "st,lis2de12";
+		reg = <0x19>;
+		st,drdy-int-pin = <1>;
+		interrupt-parent = <&gpio_6_0>;
+		interrupts = <29 0>;
+		interrupt-names = "INT1";
+	};
+
 	gsc: gsc@20 {
 		compatible = "gw,gsc-v3";
 		reg = <0x20>;
