@@ -8,4 +8,4 @@ all: $(DTB_FILES)
 %.dtb: %.dts *.dtsi
 	dtc -p 4096 -I dts -O dtb -o $@ $<
 clean:
-	rm $(DTB_FILES) 
+	rm -f $(DTB_FILES)
