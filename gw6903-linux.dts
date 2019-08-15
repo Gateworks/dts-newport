@@ -82,20 +82,20 @@
 		/* Tri-Color LED */
 		led0: green {
 			label = "green";
-			gpios = <&gpio_6_0 31 0>;
+			gpios = <&gpio_6_0 31 1>;
 			default-state = "on";
 			linux,default-trigger = "heartbeat";
 		};
 
 		led1: red {
 			label = "red";
-			gpios = <&gpio_6_0 14 0>;
+			gpios = <&gpio_6_0 5 1>;
 			default-state = "off";
 		};
 
 		led2: blue {
 			label = "blue";
-			gpios = <&gpio_6_0 29 0>;
+			gpios = <&gpio_6_0 29 1>;
 			default-state = "off";
 		};
 	};
