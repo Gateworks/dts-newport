@@ -338,11 +338,6 @@
 		pagesize = <16>;
 	};
 
-	usbc: tusb320@60 {
-		compatible = "tusb320";
-		reg = <0x60>;
-	};
-
 	rtc: ds1672@68 {
 		compatible = "dallas,ds1672";
 		reg = <0x68>;
