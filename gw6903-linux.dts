@@ -68,11 +68,38 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
+		user_pb1x {
+			label = "user_pb1x";
+			linux,code = <256>; /* BTN_0 */
+			interrupt-parent = <&gsc>;
+			interrupts = <0>;
+		};
+
+		key_erased {
+			label = "key-erased";
+			linux,code = <257>; /* BTN_1 */
+			interrupt-parent = <&gsc>;
+			interrupts = <1>;
+		};
+
 		eeprom_wp {
 			label = "eeprom_wp";
 			linux,code = <258>; /* BTN_2 */
 			interrupt-parent = <&gsc>;
 			interrupts = <2>;
+		};
+
+		switch_hold {
+			label = "switch_hold";
+			linux,code = <261>; /* BTN_5 */
+			interrupt-parent = <&gsc>;
+			interrupts = <7>;
+		};
+
+		user_pb {
+			label = "user_pb";
+			gpios = <&gsc_gpio 2 1>;
+			linux,code = <259>; /* BTN_3 */
 		};
 	};
 
