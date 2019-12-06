@@ -58,19 +58,6 @@
 		u-boot,mmc-env-partition = <0>;
 	};
 
-	clocks {
-		compatible = "simple-bus";
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		clk20m: clk@0 {
-			compatible = "fixed-clock";
-			reg = <0>;
-			#clock-cells = <0>;
-			clock-frequency = <20000000>;
-		};
-	};
-
 	gpio_keys {
 		compatible = "gpio-keys";
 		#address-cells = <1>;
@@ -385,11 +372,12 @@
 
 &spi_7_0 {
 	can0: can@1 {
-		compatible = "microchip,mcp2515";
+		compatible = "microchip,mcp2515","linux-spidev";
 		reg = <1>;
-		clocks = <&clk20m>;
+		clocks = <&can20m>;
+		oscillator-frequency = <20000000>;
 		interrupt-parent = <&gpio_6_0>;
 		interrupts = <5 0x2>;
-		spi-max-frequency = <10000000>;
+		spi-max-frequency = <1000000>;
 	};
 };

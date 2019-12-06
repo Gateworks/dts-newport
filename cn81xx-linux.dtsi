@@ -184,6 +184,13 @@
 			clock-output-names = "sclk";
 		};
 
+		can20m: can20m {
+			compatible = "fixed-clock";
+			#clock-cells = <0>;
+			clock-frequency = <20000000>;
+			clock-output-names = "can20m";
+		};
+
 		uaa0: serial@87e028000000 {
 			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x87e0 0x28000000 0x0 0x1000>;
