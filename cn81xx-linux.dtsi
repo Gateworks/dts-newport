@@ -325,6 +325,8 @@
 				compatible = "cavium,thunder-8890-gpio";
 				gpio-controller;
 				reg = <0x3000 0 0 0 0>; /*  DEVFN = 0x30 (6:0) */
+				interrupt-controller;
+				#interrupt-cells = <2>;
 				u-boot,dm-pre-reloc;
 			};
 
