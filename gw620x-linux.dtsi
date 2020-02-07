@@ -137,7 +137,6 @@
 			rgmii00: rgmii00 {
 				reg = <0>; /* phy address */
 				compatible = "ti,dp83867", "ethernet-phy-ieee802.3-c22";
-				phy-mode = "rgmii-id";
 				ti,clk-output-sel = <0xb>; /* CHD TX CLK */
 				ti,rx-internal-delay = <0x7>; /* 2ns */
 				ti,tx-internal-delay = <0x7>; /* 20ps */
