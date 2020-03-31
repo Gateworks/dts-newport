@@ -372,7 +372,7 @@
 
 &spi_7_0 {
 	can0: can@1 {
-		compatible = "microchip,mcp2515","linux-spidev";
+		compatible = "microchip,mcp2515","linux,spidev";
 		reg = <1>;
 		clocks = <&can20m>;
 		oscillator-frequency = <20000000>;
