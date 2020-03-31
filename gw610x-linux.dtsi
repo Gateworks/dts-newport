@@ -157,119 +157,117 @@
 /* TWSI0 */
 &i2c_9_0 {
 	gsc: gsc@20 {
-		compatible = "gw,gsc-v3";
+		compatible = "gw,gsc";
 		reg = <0x20>;
 		interrupt-parent = <&gpio_6_0>;
 		interrupts = <4 1>;
 		interrupt-controller;
 		#interrupt-cells = <1>;
+		#size-cells = <0>;
 
-		gsc_hwmon {
-			compatible = "gw,gsc-hwmon";
+		adc {
+			compatible = "gw,gsc-adc";
 			#address-cells = <1>;
 			#size-cells = <0>;
-			gw,fan-base = <0x0a>;
 
-			hwmon@6 {
-				type = "gw,hwmon-temperature";
+			channel@6 {
+				gw,mode = <0>;
 				reg = <0x06>;
 				label = "temp";
 			};
 
-			hwmon@8 {
-				type = "gw,hwmon-voltage";
+			channel@8 {
+				gw,mode = <3>;
 				reg = <0x08>;
 				label = "vdd_bat";
 			};
 
-			hwmon@16 {
-				type = "gw,hwmon-voltage";
+			channel@16 {
+				gw,mode = <3>;
 				reg = <0x16>;
 				label = "fan_tach";
 			};
 
-			hwmon@82 {
-				type = "gw,hwmon-voltage-raw";
+			channel@82 {
+				gw,mode = <2>;
 				reg = <0x82>;
 				label = "vdd_vin";
-				gw,voltage-divider = <22100 1000>;
-				gw,voltage-offset = <800>;
+				gw,voltage-divider-ohms = <22100 1000>;
+				gw,voltage-offset-microvolt = <800000>;
 			};
 
-			hwmon@84 {
-				type = "gw,hwmon-voltage-raw";
+			channel@84 {
+				gw,mode = <2>;
 				reg = <0x84>;
 				label = "vdd_5p0";
-				gw,voltage-divider = <22100 10000>;
+				gw,voltage-divider-ohms = <22100 10000>;
 			};
 
-			hwmon@86 {
-				type = "gw,hwmon-voltage-raw";
+			channel@86 {
+				gw,mode = <2>;
 				reg = <0x86>;
 				label = "vdd_3p3";
-				gw,voltage-divider = <10000 10000>;
+				gw,voltage-divider-ohms = <10000 10000>;
 			};
 
-			hwmon@88 {
-				type = "gw,hwmon-voltage-raw";
+			channel@88 {
+				gw,mode = <2>;
 				reg = <0x88>;
 				label = "vdd_2p5";
-				gw,voltage-divider = <10000 10000>;
+				gw,voltage-divider-ohms = <10000 10000>;
 			};
 
-			hwmon@8c {
-				type = "gw,hwmon-voltage-raw";
+			channel@8c {
+				gw,mode = <2>;
 				reg = <0x8c>;
 				label = "vdd_core";
 			};
 
-			hwmon@8e {
-				type = "gw,hwmon-voltage-raw";
+			channel@8e {
+				gw,mode = <2>;
 				reg = <0x8e>;
 				label = "vdd_0p9";
 			};
 
-			hwmon@90 {
-				type = "gw,hwmon-voltage-raw";
+			channel@90 {
+				gw,mode = <2>;
 				reg = <0x90>;
 				label = "vdd_1p0";
 			};
 
-			hwmon@92 {
-				type = "gw,hwmon-voltage-raw";
+			channel@92 {
+				gw,mode = <2>;
 				reg = <0x92>;
 				label = "vdd_1p2";
 			};
 
-			hwmon@98 {
-				type = "gw,hwmon-voltage-raw";
+			channel@98 {
+				gw,mode = <2>;
 				reg = <0x98>;
 				label = "vdd_1p5";
 			};
 
-			hwmon@9a {
-				type = "gw,hwmon-voltage-raw";
+			channel@9a {
+				gw,mode = <2>;
 				reg = <0x9a>;
 				label = "vdd_an1";
-				gw,voltage-divider = <10000 10000>;
+				gw,voltage-divider-ohms = <10000 10000>;
 			};
 
-			hwmon@a2 {
-				type = "gw,hwmon-voltage-raw";
+			channel@a2 {
+				gw,mode = <2>;
 				reg = <0xa2>;
 				label = "vdd_gsc";
-				gw,voltage-divider = <10000 10000>;
+				gw,voltage-divider-ohms = <10000 10000>;
 			};
 		};
-	};
 
-	gsc_gpio: pca9555@23 {
-		compatible = "nxp,pca9555";
-		reg = <0x23>;
-		gpio-controller;
-		#gpio-cells = <2>;
-		interrupt-parent = <&gsc>;
-		interrupts = <4>;
+		fan-controller@a {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			compatible = "gw,gsc-fan";
+			reg = <0x0a>;
+		};
 	};
 
 	max6642: max6642@4a {
@@ -299,6 +297,15 @@
 		compatible = "atmel,24c02";
 		reg = <0x53>;
 		pagesize = <16>;
+	};
+
+	gsc_gpio: pca9555@23 {
+		compatible = "nxp,pca9555";
+		reg = <0x23>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		interrupt-parent = <&gsc>;
+		interrupts = <4>;
 	};
 
 	usbc: tusb320@60 {
