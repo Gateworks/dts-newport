@@ -377,7 +377,7 @@
 		clocks = <&can20m>;
 		oscillator-frequency = <20000000>;
 		interrupt-parent = <&gpio_6_0>;
-		interrupts = <5 0x2>;
+		interrupts = <5 0x8>; /* IRQ_TYPE_LEVEL_LOW */
 		spi-max-frequency = <1000000>;
 	};
 };
