@@ -111,7 +111,7 @@
 		/* Bi-Color LED */
 		led0: user1 {
 			label = "user1"; /* GREEN */
-			gpios = <&gpio_6_0 13 0>;
+			gpios = <&gpio_6_0 31 0>;
 			default-state = "on";
 			linux,default-trigger = "heartbeat";
 		};
