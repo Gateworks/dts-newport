@@ -246,7 +246,7 @@
 		reg = <0x19>;
 		st,drdy-int-pin = <1>;
 		interrupt-parent = <&gpio_6_0>;
-		interrupts = <29 0>;
+		interrupts = <29 1>;
 		interrupt-names = "INT1";
 	};
 
