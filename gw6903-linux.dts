@@ -198,7 +198,7 @@
 		compatible = "gw,gsc";
 		reg = <0x20>;
 		interrupt-parent = <&gpio_6_0>;
-		interrupts = <4 1>;
+		interrupts = <4 2>;
 		interrupt-controller;
 		#interrupt-cells = <1>;
 		#size-cells = <0>;
