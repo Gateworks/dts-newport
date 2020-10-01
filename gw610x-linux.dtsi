@@ -210,7 +210,7 @@
 			};
 
 			channel@16 {
-				gw,mode = <3>;
+				gw,mode = <4>;
 				reg = <0x16>;
 				label = "fan_tach";
 			};
