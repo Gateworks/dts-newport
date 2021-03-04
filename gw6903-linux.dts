@@ -53,6 +53,10 @@
 	model = "Gateworks Newport CN80XX GW6903";
 	compatible = "gw,gw6903", "gw,newport", "cavium,thunder-81xx";
 
+	aliases {
+		ethernet0 = &eth0;
+	};
+
 	chosen {
 		stdout-path = "serial0:115200n8";
 	};
@@ -150,7 +154,7 @@
 	};
 
 	rgx0 {
-		rgmii00 {
+		eth0: rgmii00 {
 			reg = <0>;
 			local-mac-address = [00 00 00 00 00 00];
 			phy-handle = <&rgmii00>;

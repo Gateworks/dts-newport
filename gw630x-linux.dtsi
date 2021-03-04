@@ -48,6 +48,11 @@
 /include/ "cn81xx-linux.dtsi"
 
 / {
+	aliases {
+		ethernet0 = &eth0;
+		ethernet1 = &eth1;
+	};
+
 	chosen {
 		stdout-path = "serial0:115200n8";
 	};
@@ -155,7 +160,7 @@
 	};
 
 	rgx0 {
-		rgmii00 {
+		eth0: rgmii00 {
 			reg = <0>;
 			local-mac-address = [00 00 00 00 00 00];
 			phy-handle = <&rgmii00>;
@@ -165,7 +170,7 @@
 	/* DLM1 => SGMII (dp83867) */
 	bgx0 {
 		/* BGX0.0 */
-		sgmii@0 {
+		eth1: sgmii@0 {
 			reg = <0>;
 			qlm-mode = "0x000,sgmii";
 			local-mac-address = [00 00 00 00 00 00];
